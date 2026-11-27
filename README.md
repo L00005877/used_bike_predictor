@@ -1,1 +1,1 @@
-# used-bicycle-price-predictor
+# used_bike_predictor
