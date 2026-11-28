@@ -1,16 +1,16 @@
 name: 3_retrain
 on:
   schedule:
-        - cron: "0 0 * * 0"
+    - cron: "0 0 * * 0"
   workflow_dispatch:
 jobs:
   retrain:
     runs-on: ubuntu-latest
     steps:
-            - uses: actions/checkout@v4
-            - uses: actions/setup-python@v5
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-            - run: pip install -r requirements.txt
-            - run: python3 app/clean_data.py
-          
+      - run: pip install -r requirements.txt
+      - run: python3 -m py_compile app/clean_data.py app/train.py app/flaskapp.py
+      - run: python3 app/clean_data.py 
